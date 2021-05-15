@@ -10,7 +10,7 @@ class Constants {
 
   static const STACKOVERFLOW_URL =
       "https://stackoverflow.com/users/7802802/piyush-kumar";
-  static const LINKEDIN_URL = "www.linkedin.com/in/piyush-kumar-220ba0126";
+  static const LINKEDIN_URL = "https://www.linkedin.com/in/piyush-kumar-220ba0126";
   static const FACEBOOK_URL =
       "https://www.facebook.com/profile.php?id=100027077625596&sk=about";
   static const INSTAGRAM_URL = "https://www.instagram.com/piyushj_k/";
