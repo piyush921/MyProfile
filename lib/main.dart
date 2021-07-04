@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/projects.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
                   shape: BoxShape.circle,
                   image: new DecorationImage(
                       fit: BoxFit.fill,
-                      image: new AssetImage('images/profile.jpeg')))),
+                      image: new AssetImage("images/profile.jpeg")))),//AssetImage('/profile.jpeg')))),
         ],
       ),
     );
@@ -80,11 +81,11 @@ class MyApp extends StatelessWidget {
     );
     // #enddocregion titleSection
 
+    Size _size = MediaQuery.of(context).size;
+
     Widget links = Container(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Wrap(
+        alignment: WrapAlignment.center,
         children: [
           _buildButtonColumn(Constants.RESUME, context),
           _buildButtonColumn(Constants.LINKEDIN, context),
@@ -211,7 +212,7 @@ class MyApp extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
-          margin: const EdgeInsets.fromLTRB(0, 150.0, 0, 0),
+          margin: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
           child: Text(
             'Made with  ❤  in Flutter',
             style: TextStyle(fontSize: 10.0, color: Colors.white),
