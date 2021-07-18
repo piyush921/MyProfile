@@ -18,6 +18,23 @@ class Constants {
   static const RESUME_URL =
       "https://drive.google.com/file/d/1S_42eX4LM4PQmWenmmTFOFjfmOZtvoKY/view?usp=sharing";
 
+  static const backgroundImageURl = "images/background4.jpg";
+  static const profileImageUrl = "images/profile.jpeg";
+
+  static var projectNetworkIconArray = [
+    "https://www.linkpicture.com/q/logo_bathinda.png",
+    "https://www.linkpicture.com/q/logo_hanumangarh.jpeg",
+    "https://www.linkpicture.com/q/logo_she_plus.png",
+    "https://www.linkpicture.com/q/logo_dialkiwi.png",
+    "https://www.linkpicture.com/q/logo_dialkiwi.png",
+    "https://www.linkpicture.com/q/logo_sopodely.png",
+    "https://www.linkpicture.com/q/logo_sopodely_driver.png",
+    "https://www.linkpicture.com/q/logo_collect.jpeg",
+    "https://www.linkpicture.com/q/logo_photo_tune_plus.jpeg",
+    "https://www.linkpicture.com/q/logo_lookplanner.jpeg",
+    "https://www.linkpicture.com/q/logo_cm_live.jpeg",
+  ];
+
   static var projectIconArray = [
     "images/logo_bathinda.png",
     "images/logo_hanumangarh.jpeg",

@@ -1,14 +1,12 @@
 import 'dart:ui';
+import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/projects.dart';
-
-/*void main() {
-  runApp(MyApp());
-}*/
 
 void main() => runApp(MaterialApp(
       title: "App",
@@ -17,23 +15,140 @@ void main() => runApp(MaterialApp(
 
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    Widget profileImage = Container(
+    Orientation orientation = MediaQuery.of(context).orientation;
+
+    /*if(kIsWeb) {
+      if (orientation == Orientation.landscape) {
+        return _portraitMode(context);
+      } else {
+        return _landscapeMode(context);
+      }
+    }
+
+    try {
+      if (Platform.isAndroid || Platform.isIOS) {
+        if (orientation == Orientation.portrait) {
+          return _portraitMode(context);
+        } else {
+          return _landscapeMode(context);
+        }
+      } else {
+        return _portraitMode(context);
+      }
+    } catch (e) {
+      return _portraitMode(context);
+    }*/
+
+    return _portraitMode(context);
+
+  }
+
+  MaterialApp _portraitMode(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: new Stack(
+          children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(
+                image: new DecorationImage(
+                  image: new AssetImage(Constants.backgroundImageURl),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            new Column(
+              children: <Widget>[
+                _profileImage(context),
+                _about(context),
+                _links(context),
+                _bottomCredits(),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  MaterialApp _landscapeMode(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: new Stack(
+          children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(
+                image: new DecorationImage(
+                  image: new AssetImage(Constants.backgroundImageURl),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            new Row(
+              children: [
+                Expanded(
+                  child: new Column(
+                    children: <Widget>[
+                      _profileImageForLandscape(context),
+                      _aboutForLandscape(context)
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: new Column(
+                    children: <Widget>[_links(context)],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _profileImage(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
+    return Container(
       child: Column(
         children: <Widget>[
           new Container(
-              margin: const EdgeInsets.all(30),
-              width: 150.0,
-              height: 150.0,
+              margin: const EdgeInsets.all(10),
+              width: _size.width < 410 ? 100.0 : 150.0,
+              height: _size.width < 410 ? 100.0 : 150.0,
               decoration: new BoxDecoration(
                   shape: BoxShape.circle,
                   image: new DecorationImage(
                       fit: BoxFit.fill,
-                      image: new AssetImage("images/profile.jpeg")))),//AssetImage('/profile.jpeg')))),
+                      image: new AssetImage(Constants.profileImageUrl)))),
         ],
       ),
     );
+  }
 
-    Widget about = Container(
+  Widget _profileImageForLandscape(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new Container(
+              margin: const EdgeInsets.all(10),
+              width: _size.height < 371 ? 100.0 : 150.0,
+              height: _size.height < 371 ? 100.0 : 150.0,
+              decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: new DecorationImage(
+                      fit: BoxFit.fill,
+                      image: new AssetImage(Constants.profileImageUrl)))),
+        ],
+      ),
+    );
+  }
+
+  Widget _about(BuildContext context) {
+    Size _size = MediaQuery.of(context).size;
+
+    return Container(
       padding: const EdgeInsets.all(32),
       child: Row(
         children: [
@@ -50,7 +165,7 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 30.0,
+                      fontSize: _size.width < 300 ? 20.0 : 30.0,
                     ),
                   ),
                 ),
@@ -59,7 +174,7 @@ class MyApp extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
-                    fontSize: 20.0,
+                    fontSize: _size.width < 300 ? 16.0 : 20.0,
                   ),
                 ),
                 Container(
@@ -68,7 +183,7 @@ class MyApp extends StatelessWidget {
                     'Android Application Developer',
                     style: TextStyle(
                       color: Colors.white70,
-                      fontSize: 16.0,
+                      fontSize: _size.width < 305 ? 12.0 : 16.0,
                     ),
                   ),
                 ),
@@ -79,11 +194,63 @@ class MyApp extends StatelessWidget {
         ],
       ),
     );
-    // #enddocregion titleSection
+  }
 
+  Widget _aboutForLandscape(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
 
-    Widget links = Container(
+    return Container(
+      padding: const EdgeInsets.all(32),
+      child: Stack(
+        children: [
+          Expanded(
+            /*1*/
+            child: Column(
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                /*2*/
+                Container(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'Hello',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: _size.height <= 320 ? 20.0 : 30.0,
+                    ),
+                  ),
+                ),
+                Text(
+                  "I'm Piyush Kumar",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: _size.height < 308 ? 16.0 : 20.0,
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.all(10),
+                  child: Text(
+                    'Android Application Developer',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: _size.height < 302 ? 12.0 : 16.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          /*3*/
+        ],
+      ),
+    );
+  }
+
+  Widget _links(BuildContext context) {
+    return Container(
       child: Wrap(
         alignment: WrapAlignment.center,
         children: [
@@ -95,31 +262,6 @@ class MyApp extends StatelessWidget {
           _buildButtonColumn(Constants.PROJECTS, context),
           _buildButtonColumn(Constants.GITHUB, context),
         ],
-      ),
-    );
-
-    return MaterialApp(
-      home: Scaffold(
-        body: new Stack(
-          children: <Widget>[
-            new Container(
-              decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  image: new AssetImage("images/background4.jpg"),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            new Column(
-              children: <Widget>[
-                profileImage,
-                about,
-                links,
-                _bottomCredits(),
-              ],
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -219,6 +361,31 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  showAlertDialog(BuildContext context, String message) {
+    // set up the button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {},
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Alert of orientation"),
+      content: Text(message),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
     );
   }
 }
