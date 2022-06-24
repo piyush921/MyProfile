@@ -1,15 +1,11 @@
-import 'dart:ui';
-import 'dart:io';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/services.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/projects.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MaterialApp(
-      title: "App",
+      title: "Portfolio",
       home: MyApp(),
     ));
 
@@ -39,8 +35,13 @@ class MyApp extends StatelessWidget {
       return _portraitMode(context);
     }*/
 
-    return _portraitMode(context);
+    //this is for fixing web app title
+    SystemChrome.setApplicationSwitcherDescription(ApplicationSwitcherDescription(
+      label: 'Portfolio',
+      primaryColor: Theme.of(context).primaryColor.value,
+    ));
 
+    return _portraitMode(context);
   }
 
   MaterialApp _portraitMode(BuildContext context) {
@@ -337,13 +338,8 @@ class MyApp extends StatelessWidget {
   }
 
   Future<void> _launchInBrowser(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'header_key': 'header_value'},
-      );
+    if (await canLaunchUrl(Uri.file(url))) {
+      await launchUrl(Uri.file(url));
     } else {
       throw 'Could not launch $url';
     }
@@ -354,7 +350,7 @@ class MyApp extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Container(
-          margin: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
+          margin: const EdgeInsets.fromLTRB(0, 20.0, 0, 0),
           child: Text(
             'Made with  ❤  in Flutter',
             style: TextStyle(fontSize: 10.0, color: Colors.white),
@@ -366,7 +362,7 @@ class MyApp extends StatelessWidget {
 
   showAlertDialog(BuildContext context, String message) {
     // set up the button
-    Widget okButton = FlatButton(
+    Widget okButton = TextButton(
       child: Text("OK"),
       onPressed: () {},
     );
