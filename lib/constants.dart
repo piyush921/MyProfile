@@ -6,6 +6,7 @@ class Constants {
   static const FACEBOOK = "Facebook";
   static const INSTAGRAM = "Instagram";
   static const PROJECTS = "Projects";
+  static const TWITTER = "Twitter";
   static const GITHUB = "Github";
 
   static const STACKOVERFLOW_URL =
@@ -15,27 +16,16 @@ class Constants {
       "https://www.facebook.com/profile.php?id=100027077625596&sk=about";
   static const INSTAGRAM_URL = "https://www.instagram.com/piyushj_k/";
   static const GITHUB_URL = "https://github.com/piyush921";
+  static const TWITTER_URL = "https://twitter.com/kumarpiyush921";
   static const RESUME_URL =
       "https://drive.google.com/file/d/1S_42eX4LM4PQmWenmmTFOFjfmOZtvoKY/view?usp=sharing";
 
   static const backgroundImageURl = "images/background4.jpg";
   static const profileImageUrl = "images/profile.jpeg";
 
-  static var projectNetworkIconArray = [
-    "https://www.linkpicture.com/q/logo_bathinda.png",
-    "https://www.linkpicture.com/q/logo_hanumangarh.jpeg",
-    "https://www.linkpicture.com/q/logo_she_plus.png",
-    "https://www.linkpicture.com/q/logo_dialkiwi.png",
-    "https://www.linkpicture.com/q/logo_dialkiwi.png",
-    "https://www.linkpicture.com/q/logo_sopodely.png",
-    "https://www.linkpicture.com/q/logo_sopodely_driver.png",
-    "https://www.linkpicture.com/q/logo_collect.jpeg",
-    "https://www.linkpicture.com/q/logo_photo_tune_plus.jpeg",
-    "https://www.linkpicture.com/q/logo_lookplanner.jpeg",
-    "https://www.linkpicture.com/q/logo_cm_live.jpeg",
-  ];
-
   static var projectIconArray = [
+    "images/logo_amrita.png",
+    "images/logo_mercy.png",
     "images/logo_bathinda.png",
     "images/logo_hanumangarh.jpeg",
     "images/logo_she_plus.png",
@@ -50,6 +40,24 @@ class Constants {
   ];
 
   static var projectNameArray = [
+    "Amrita Live",
+    "Mercy Video",
+    "Bathinda.City",
+    "HanumanGarh.City",
+    "She +",
+    "Dialkiwi",
+    "Dialkiwi Driver",
+    "Sopodely",
+    "Sopodely Driver",
+    "SGS Collect",
+    "PhotoTunePlus",
+    "LookPlanner",
+    "CM Live"
+  ];
+
+  static var projectDescriptionArray = [
+    "Amrita Live",
+    "Mercy Video",
     "Bathinda.City",
     "HanumanGarh.City",
     "She +",
@@ -64,6 +72,8 @@ class Constants {
   ];
 
   static var projectUrlArray = [
+    "https://play.google.com/store/apps/details?id=com.AmritaLiveTV.activity",
+    "https://play.google.com/store/apps/details?id=com.mercyvideo",
     "https://play.google.com/store/apps/details?id=nsgsystem.bathinda.city",
     "https://play.google.com/store/apps/details?id=com.hanumangarh.city",
     "https://play.google.com/store/apps/details?id=com.shePlus",

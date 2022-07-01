@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
     }*/
 
     //this is for fixing web app title
-    SystemChrome.setApplicationSwitcherDescription(ApplicationSwitcherDescription(
+    SystemChrome.setApplicationSwitcherDescription(
+        ApplicationSwitcherDescription(
       label: 'Portfolio',
       primaryColor: Theme.of(context).primaryColor.value,
     ));
@@ -256,12 +257,13 @@ class MyApp extends StatelessWidget {
         alignment: WrapAlignment.center,
         children: [
           _buildButtonColumn(Constants.RESUME, context),
+          _buildButtonColumn(Constants.PROJECTS, context),
           _buildButtonColumn(Constants.LINKEDIN, context),
+          _buildButtonColumn(Constants.GITHUB, context),
           _buildButtonColumn(Constants.STACKOVERFLOW, context),
+          _buildButtonColumn(Constants.TWITTER, context),
           _buildButtonColumn(Constants.FACEBOOK, context),
           _buildButtonColumn(Constants.INSTAGRAM, context),
-          _buildButtonColumn(Constants.PROJECTS, context),
-          _buildButtonColumn(Constants.GITHUB, context),
         ],
       ),
     );
@@ -280,7 +282,6 @@ class MyApp extends StatelessWidget {
               borderRadius: BorderRadius.circular(5.0)),
           child: InkWell(
             onTap: () {
-              debugPrint('click on: ' + label);
               _goToPage(label, context);
             },
             child: Padding(
@@ -328,6 +329,11 @@ class MyApp extends StatelessWidget {
           _launchInBrowser(Constants.RESUME_URL);
         }
         break;
+      case Constants.TWITTER:
+        {
+          _launchInBrowser(Constants.TWITTER_URL);
+        }
+        break;
       case Constants.PROJECTS:
         {
           Navigator.push(
@@ -338,8 +344,13 @@ class MyApp extends StatelessWidget {
   }
 
   Future<void> _launchInBrowser(String url) async {
-    if (await canLaunchUrl(Uri.file(url))) {
-      await launchUrl(Uri.file(url));
+    if (await canLaunch(url)) {
+      await launch(
+        url,
+        forceSafariVC: false,
+        forceWebView: false,
+        headers: <String, String>{'header_key': 'header_value'},
+      );
     } else {
       throw 'Could not launch $url';
     }
