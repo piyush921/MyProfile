@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:portfolio/constants.dart';
 import 'package:portfolio/projects.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -11,37 +10,6 @@ void main() => runApp(MaterialApp(
 
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    Orientation orientation = MediaQuery.of(context).orientation;
-
-    /*if(kIsWeb) {
-      if (orientation == Orientation.landscape) {
-        return _portraitMode(context);
-      } else {
-        return _landscapeMode(context);
-      }
-    }
-
-    try {
-      if (Platform.isAndroid || Platform.isIOS) {
-        if (orientation == Orientation.portrait) {
-          return _portraitMode(context);
-        } else {
-          return _landscapeMode(context);
-        }
-      } else {
-        return _portraitMode(context);
-      }
-    } catch (e) {
-      return _portraitMode(context);
-    }*/
-
-    //this is for fixing web app title
-    SystemChrome.setApplicationSwitcherDescription(
-        ApplicationSwitcherDescription(
-      label: 'Portfolio',
-      primaryColor: Theme.of(context).primaryColor.value,
-    ));
-
     return _portraitMode(context);
   }
 
@@ -72,42 +40,6 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  MaterialApp _landscapeMode(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: new Stack(
-          children: <Widget>[
-            new Container(
-              decoration: new BoxDecoration(
-                image: new DecorationImage(
-                  image: new AssetImage(Constants.backgroundImageURl),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            new Row(
-              children: [
-                Expanded(
-                  child: new Column(
-                    children: <Widget>[
-                      _profileImageForLandscape(context),
-                      _aboutForLandscape(context)
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: new Column(
-                    children: <Widget>[_links(context)],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget _profileImage(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
     return Container(
@@ -117,26 +49,6 @@ class MyApp extends StatelessWidget {
               margin: const EdgeInsets.all(10),
               width: _size.width < 410 ? 100.0 : 150.0,
               height: _size.width < 410 ? 100.0 : 150.0,
-              decoration: new BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: new DecorationImage(
-                      fit: BoxFit.fill,
-                      image: new AssetImage(Constants.profileImageUrl)))),
-        ],
-      ),
-    );
-  }
-
-  Widget _profileImageForLandscape(BuildContext context) {
-    Size _size = MediaQuery.of(context).size;
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          new Container(
-              margin: const EdgeInsets.all(10),
-              width: _size.height < 371 ? 100.0 : 150.0,
-              height: _size.height < 371 ? 100.0 : 150.0,
               decoration: new BoxDecoration(
                   shape: BoxShape.circle,
                   image: new DecorationImage(
@@ -186,59 +98,6 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white70,
                       fontSize: _size.width < 305 ? 12.0 : 16.0,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          /*3*/
-        ],
-      ),
-    );
-  }
-
-  Widget _aboutForLandscape(BuildContext context) {
-    Size _size = MediaQuery.of(context).size;
-
-    return Container(
-      padding: const EdgeInsets.all(32),
-      child: Stack(
-        children: [
-          Expanded(
-            /*1*/
-            child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                /*2*/
-                Container(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Text(
-                    'Hello',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      fontSize: _size.height <= 320 ? 20.0 : 30.0,
-                    ),
-                  ),
-                ),
-                Text(
-                  "I'm Piyush Kumar",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: _size.height < 308 ? 16.0 : 20.0,
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(10),
-                  child: Text(
-                    'Android Application Developer',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: _size.height < 302 ? 12.0 : 16.0,
                     ),
                   ),
                 ),
@@ -301,37 +160,37 @@ class MyApp extends StatelessWidget {
     switch (label) {
       case Constants.STACKOVERFLOW:
         {
-          _launchInBrowser(Constants.STACKOVERFLOW_URL);
+          _launchInBrowser(Uri.parse(Constants.STACKOVERFLOW_URL));
         }
         break;
       case Constants.GITHUB:
         {
-          _launchInBrowser(Constants.GITHUB_URL);
+          _launchInBrowser(Uri.parse(Constants.GITHUB_URL));
         }
         break;
       case Constants.FACEBOOK:
         {
-          _launchInBrowser(Constants.FACEBOOK_URL);
+          _launchInBrowser(Uri.parse(Constants.FACEBOOK_URL));
         }
         break;
       case Constants.INSTAGRAM:
         {
-          _launchInBrowser(Constants.INSTAGRAM_URL);
+          _launchInBrowser(Uri.parse(Constants.INSTAGRAM_URL));
         }
         break;
       case Constants.LINKEDIN:
         {
-          _launchInBrowser(Constants.LINKEDIN_URL);
+          _launchInBrowser(Uri.parse(Constants.LINKEDIN_URL));
         }
         break;
       case Constants.RESUME:
         {
-          _launchInBrowser(Constants.RESUME_URL);
+          _launchInBrowser(Uri.parse(Constants.RESUME_URL));
         }
         break;
       case Constants.TWITTER:
         {
-          _launchInBrowser(Constants.TWITTER_URL);
+          _launchInBrowser(Uri.parse(Constants.TWITTER_URL));
         }
         break;
       case Constants.PROJECTS:
@@ -343,15 +202,11 @@ class MyApp extends StatelessWidget {
     }
   }
 
-  Future<void> _launchInBrowser(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'header_key': 'header_value'},
-      );
-    } else {
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
       throw 'Could not launch $url';
     }
   }

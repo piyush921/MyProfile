@@ -28,11 +28,13 @@ class Projects extends StatelessWidget {
 
   Widget _buildExpandableTile(BuildContext context) {
     Size _size = MediaQuery.of(context).size;
-    int gridSize = 3;
+    int gridSize;
     if (_size.width <= 420) {
       gridSize = 1;
     } else if (_size.width > 420 && _size.width <= 900) {
       gridSize = 2;
+    } else {
+      gridSize = 3;
     }
 
     return GridView.builder(
@@ -64,7 +66,7 @@ class Projects extends StatelessWidget {
                             color: Colors.white, fontWeight: FontWeight.w700)),
                     hoverColor: Colors.white38,
                     onTap: () {
-                      _launchPlayStore(Constants.projectUrlArray[index]);
+                      _launchInBrowser(Uri.parse(Constants.projectUrlArray[index]));
                     })
               ],
             ));
@@ -79,15 +81,11 @@ class Projects extends StatelessWidget {
     );
   }
 
-  Future<void> _launchPlayStore(String url) async {
-    if (await canLaunch(url)) {
-      await launch(
-        url,
-        forceSafariVC: false,
-        forceWebView: false,
-        headers: <String, String>{'header_key': 'header_value'},
-      );
-    } else {
+  Future<void> _launchInBrowser(Uri url) async {
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
       throw 'Could not launch $url';
     }
   }
