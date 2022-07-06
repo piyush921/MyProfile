@@ -26,64 +26,50 @@ class Constants {
   static var projectIconArray = [
     "images/logo_amrita.png",
     "images/logo_mercy.png",
+    "images/logo_cm_live.jpeg",
+    "images/logo_photo_tune_plus.jpeg",
+    "images/logo_dialkiwi.png",
+    "images/logo_dialkiwi.png",
     "images/logo_bathinda.png",
     "images/logo_hanumangarh.jpeg",
-    "images/logo_she_plus.png",
-    "images/logo_dialkiwi.png",
-    "images/logo_dialkiwi.png",
-    "images/logo_sopodely.png",
-    "images/logo_sopodely_driver.png",
-    "images/logo_collect.jpeg",
-    "images/logo_photo_tune_plus.jpeg",
-    "images/logo_lookplanner.jpeg",
-    "images/logo_cm_live.jpeg",
+    "images/logo_sopodely.png"
   ];
 
   static var projectNameArray = [
     "Amrita Live",
     "Mercy Video",
-    "Bathinda.City",
-    "HanumanGarh.City",
-    "She +",
+    "CM Live",
+    "PhotoTunePlus",
     "Dialkiwi",
     "Dialkiwi Driver",
-    "Sopodely",
-    "Sopodely Driver",
-    "SGS Collect",
-    "PhotoTunePlus",
-    "LookPlanner",
-    "CM Live"
+    "Bathinda.City",
+    "HanumanGarh.City",
+    "Sopodely"
   ];
 
   static var projectDescriptionArray = [
-    "Amrita Live",
+    "<font color='#c0c0c0'>"
+        "Amrita Live is an exclusive Over-the-Top (OTT) platform. "
+        "It supports <b><font color='#fff'>dynamic bitrate, subtitles and audio selections</font></b>, PIP mode and brightness and audio adjustment gestures.</font>",
     "Mercy Video",
-    "Bathinda.City",
-    "HanumanGarh.City",
-    "She +",
+    "CM Live",
+    "PhotoTunePlus",
     "Dialkiwi",
     "Dialkiwi Driver",
-    "Sopodely",
-    "Sopodely Driver",
-    "SGS Collect",
-    "PhotoTunePlus",
-    "LookPlanner",
-    "CM Live"
+    "Bathinda.City",
+    "HanumanGarh.City",
+    "Sopodely"
   ];
 
   static var projectUrlArray = [
     "https://play.google.com/store/apps/details?id=com.AmritaLiveTV.activity",
     "https://play.google.com/store/apps/details?id=com.mercyvideo",
-    "https://play.google.com/store/apps/details?id=nsgsystem.bathinda.city",
-    "https://play.google.com/store/apps/details?id=com.hanumangarh.city",
-    "https://play.google.com/store/apps/details?id=com.shePlus",
+    "https://play.google.com/store/apps/details?id=com.e.cmlive",
+    "https://play.google.com/store/apps/details?id=com.phototuneplus",
     "https://play.google.com/store/apps/details?id=com.dialkiwi",
     "https://play.google.com/store/apps/details?id=com.dialkiwi.drivers",
-    "https://play.google.com/store/apps/details?id=com.sopodely",
-    "https://play.google.com/store/apps/details?id=com.sopodely.drivers",
-    "Not Live Yet",
-    "https://play.google.com/store/apps/details?id=com.phototuneplus",
-    "https://play.google.com/store/apps/details?id=com.lookplanner",
-    "https://play.google.com/store/apps/details?id=com.e.cmlive"
+    "https://play.google.com/store/apps/details?id=nsgsystem.bathinda.city",
+    "https://play.google.com/store/apps/details?id=com.hanumangarh.city",
+    "https://play.google.com/store/apps/details?id=com.sopodely"
   ];
 }

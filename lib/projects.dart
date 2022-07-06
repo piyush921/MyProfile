@@ -56,12 +56,12 @@ class Projects extends StatelessWidget {
                       color: Colors.white, fontWeight: FontWeight.w700)),
               children: <Widget>[
                 ListTile(
-                    title: Text("About",
+                    title: Text("Project URL:",
                         style: TextStyle(
                             color: Colors.white70,
                             fontWeight: FontWeight.w700)),
                     subtitle: Text(
-                        "${Constants.projectDescriptionArray[index]}\n\n${Constants.projectUrlArray[index]}\n",
+                        "${Constants.projectUrlArray[index]}\n",
                         style: TextStyle(
                             color: Colors.white, fontWeight: FontWeight.w700)),
                     hoverColor: Colors.white38,
@@ -76,7 +76,7 @@ class Projects extends StatelessWidget {
         childAspectRatio: 1.0,
         crossAxisSpacing: 0.0,
         mainAxisSpacing: 5,
-        mainAxisExtent: 300,
+        mainAxisExtent: 200,
       ),
     );
   }
