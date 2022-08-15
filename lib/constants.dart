@@ -18,7 +18,7 @@ class Constants {
   static const GITHUB_URL = "https://github.com/piyush921";
   static const TWITTER_URL = "https://twitter.com/kumarpiyush921";
   static const RESUME_URL =
-      "https://drive.google.com/file/d/1S_42eX4LM4PQmWenmmTFOFjfmOZtvoKY/view?usp=sharing";
+      "https://drive.google.com/file/d/18esdRpoxW69Ka4ep_mtsCkPI_K47SeNZ/view?usp=sharing";
 
   static const backgroundImageURl = "images/background4.jpg";
   static const profileImageUrl = "images/profile.jpeg";
