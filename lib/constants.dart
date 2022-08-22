@@ -49,7 +49,7 @@ class Constants {
 
   static var projectDescriptionArray = [
     "<font color='#c0c0c0'>"
-        "Amrita Live is an exclusive Over-the-Top(OTT) platform. "
+        "Amrita Live is an exclusive Over-the-Top (OTT) platform. "
         "It supports <b><font color='#fff'>dynamic bitrate, subtitles and audio selections</font></b>, PIP mode and brightness and audio adjustment gestures.</font>",
     "Mercy Video",
     "CM Live",
