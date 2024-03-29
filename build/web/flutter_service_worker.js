@@ -2,85 +2,76 @@
 const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
-const RESOURCES = {
-  "404.html": "0a27a4163254fc8fce870c8cc3a3f94f",
+
+const RESOURCES = {"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
+"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
+"manifest.json": "288e2b94f4ae12cf54d40eaae47c3741",
+"flutter.js": "c71a09214cb6f5f8996a531350400a9a",
+"main.dart.js": "3af9e0e048e2d9827be3107557c4dd0d",
+"canvaskit/canvaskit.wasm": "3d2a2d663e8c5111ac61a46367f751ac",
+"canvaskit/skwasm.wasm": "e42815763c5d05bba43f9d0337fa7d84",
+"canvaskit/canvaskit.js": "c86fbd9e7b17accae76e5ad116583dc4",
+"canvaskit/chromium/canvaskit.wasm": "f5934e694f12929ed56a671617acd254",
+"canvaskit/chromium/canvaskit.js": "43787ac5098c648979c27c13c6f804c3",
+"canvaskit/chromium/canvaskit.js.symbols": "4525682ef039faeb11f24f37436dca06",
+"canvaskit/skwasm.worker.js": "bfb704a6c714a75da9ef320991e88b03",
+"canvaskit/skwasm.js.symbols": "741d50ffba71f89345996b0aa8426af8",
+"canvaskit/canvaskit.js.symbols": "38cba9233b92472a36ff011dc21c2c9f",
+"canvaskit/skwasm.js": "445e9e400085faead4493be2224d95aa",
+"assets/AssetManifest.bin.json": "a8bccbd28589761129c0ec15bad6d094",
+"assets/fonts/MaterialIcons-Regular.otf": "0db35ae7a415370b89e807027510caf0",
 "assets/AssetManifest.json": "650521a8ccb01b6093e7a83430dd362d",
-"assets/assets/images/background4.jpg": "b00f0bb1e37dac6314b10a5a5ed3b62e",
-"assets/assets/images/logo_amrita.png": "fcba65f4932e01680f421b58dd5b1a58",
-"assets/assets/images/logo_bathinda.png": "ba20fada71f566342e43a15d87edfcae",
-"assets/assets/images/logo_cm_live.jpeg": "9cbbbd751954ceaee3c3f45faa4029d9",
-"assets/assets/images/logo_collect.jpeg": "5dc0f3d4edcaef02ab53c7d5cb968ee6",
-"assets/assets/images/logo_dialkiwi.png": "650dec573e51dc62955726c2fe2527a4",
-"assets/assets/images/logo_hanumangarh.jpeg": "ef416f7fece4e4a9426d37fb3112061a",
-"assets/assets/images/logo_lookplanner.jpeg": "31836e3ef53a26601fc8707eac7398dc",
-"assets/assets/images/logo_mercy.png": "0318c6a492f91952e50b8fe9a0feb91f",
-"assets/assets/images/logo_photo_tune_plus.jpeg": "3e6d2e7af1daa5bf9a32a8936d761ff4",
-"assets/assets/images/logo_she_plus.png": "fe1a98f507949cbcc90dd670d8e7ffad",
-"assets/assets/images/logo_sopodely.png": "871946e7356489a33518ec6f4174d17d",
-"assets/assets/images/logo_sopodely_driver.png": "fbc7b02018d09cc78749b1464a0aa032",
-"assets/assets/images/profile.jpeg": "b15631d97d58ee4b89b8174b83792a71",
-"assets/FontManifest.json": "71a4a82de411f155107da3f8dac64ebd",
-"assets/fonts/MaterialIcons-Regular.otf": "7e7a6cccddf6d7b20012a548461d5d81",
-"assets/images/background4.jpg": "b00f0bb1e37dac6314b10a5a5ed3b62e",
-"assets/images/logo_amrita.png": "fcba65f4932e01680f421b58dd5b1a58",
-"assets/images/logo_bathinda.png": "ba20fada71f566342e43a15d87edfcae",
-"assets/images/logo_cm_live.jpeg": "9cbbbd751954ceaee3c3f45faa4029d9",
-"assets/images/logo_collect.jpeg": "5dc0f3d4edcaef02ab53c7d5cb968ee6",
-"assets/images/logo_dialkiwi.png": "650dec573e51dc62955726c2fe2527a4",
-"assets/images/logo_hanumangarh.jpeg": "ef416f7fece4e4a9426d37fb3112061a",
-"assets/images/logo_lookplanner.jpeg": "31836e3ef53a26601fc8707eac7398dc",
-"assets/images/logo_mercy.png": "0318c6a492f91952e50b8fe9a0feb91f",
-"assets/images/logo_photo_tune_plus.jpeg": "3e6d2e7af1daa5bf9a32a8936d761ff4",
-"assets/images/logo_she_plus.png": "fe1a98f507949cbcc90dd670d8e7ffad",
-"assets/images/logo_sopodely.png": "871946e7356489a33518ec6f4174d17d",
-"assets/images/logo_sopodely_driver.png": "fbc7b02018d09cc78749b1464a0aa032",
-"assets/images/profile.jpeg": "b15631d97d58ee4b89b8174b83792a71",
-"assets/NOTICES": "ffa1db889079da15f7874fae901a6a3a",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_AMS-Regular.ttf": "657a5353a553777e270827bd1630e467",
+"assets/packages/wakelock_web/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
 "assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Caligraphic-Bold.ttf": "a9c8e437146ef63fcd6fae7cf65ca859",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Caligraphic-Regular.ttf": "7ec92adfa4fe03eb8e9bfb60813df1fa",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Fraktur-Bold.ttf": "46b41c4de7a936d099575185a94855c4",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Fraktur-Regular.ttf": "dede6f2c7dad4402fa205644391b3a94",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Main-Bold.ttf": "9eef86c1f9efa78ab93d41a0551948f7",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Main-BoldItalic.ttf": "e3c361ea8d1c215805439ce0941a1c8d",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Main-Italic.ttf": "ac3b1882325add4f148f05db8cafd401",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Main-Regular.ttf": "5a5766c715ee765aa1398997643f1589",
 "assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Math-BoldItalic.ttf": "946a26954ab7fbd7ea78df07795a6cbc",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Math-Italic.ttf": "a7732ecb5840a15be39e1eda377bc21d",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_SansSerif-Bold.ttf": "ad0a28f28f736cf4c121bcb0e719b88a",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_SansSerif-Italic.ttf": "d89b80e7bdd57d238eeaa80ed9a1013a",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_SansSerif-Regular.ttf": "b5f967ed9e4933f1c3165a12fe3436df",
 "assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Script-Regular.ttf": "55d2dcd4778875a53ff09320a85a5296",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size1-Regular.ttf": "1e6a3368d660edc3a2fbbe72edfeaa85",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size2-Regular.ttf": "959972785387fe35f7d47dbfb0385bc4",
-"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size3-Regular.ttf": "e87212c26bb86c21eb028aba2ac53ec3",
 "assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size4-Regular.ttf": "85554307b465da7eb785fd3ce52ad282",
 "assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Typewriter-Regular.ttf": "87f56927f1ba726ce0591955c8b3b42d",
-"assets/packages/wakelock_web/assets/no_sleep.js": "7748a45cd593f33280669b29c2c8919a",
-"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
-"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba",
-"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
-"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_AMS-Regular.ttf": "657a5353a553777e270827bd1630e467",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Main-Bold.ttf": "9eef86c1f9efa78ab93d41a0551948f7",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Main-Italic.ttf": "ac3b1882325add4f148f05db8cafd401",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size3-Regular.ttf": "e87212c26bb86c21eb028aba2ac53ec3",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_SansSerif-Regular.ttf": "b5f967ed9e4933f1c3165a12fe3436df",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Math-Italic.ttf": "a7732ecb5840a15be39e1eda377bc21d",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Fraktur-Bold.ttf": "46b41c4de7a936d099575185a94855c4",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size1-Regular.ttf": "1e6a3368d660edc3a2fbbe72edfeaa85",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Main-Regular.ttf": "5a5766c715ee765aa1398997643f1589",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Main-BoldItalic.ttf": "e3c361ea8d1c215805439ce0941a1c8d",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Caligraphic-Regular.ttf": "7ec92adfa4fe03eb8e9bfb60813df1fa",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Fraktur-Regular.ttf": "dede6f2c7dad4402fa205644391b3a94",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_SansSerif-Bold.ttf": "ad0a28f28f736cf4c121bcb0e719b88a",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_SansSerif-Italic.ttf": "d89b80e7bdd57d238eeaa80ed9a1013a",
+"assets/packages/flutter_math_fork/lib/katex_fonts/fonts/KaTeX_Size2-Regular.ttf": "959972785387fe35f7d47dbfb0385bc4",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "89ed8f4e49bcdfc0b5bfc9b24591e347",
+"assets/AssetManifest.bin": "0923f67f780504750279435a677999e7",
+"assets/FontManifest.json": "71a4a82de411f155107da3f8dac64ebd",
+"assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
+"assets/assets/images/logo_she_plus.png": "fe1a98f507949cbcc90dd670d8e7ffad",
+"assets/assets/images/logo_bathinda.png": "ba20fada71f566342e43a15d87edfcae",
+"assets/assets/images/profile.jpeg": "b15631d97d58ee4b89b8174b83792a71",
+"assets/assets/images/logo_collect.jpeg": "5dc0f3d4edcaef02ab53c7d5cb968ee6",
+"assets/assets/images/logo_dialkiwi.png": "650dec573e51dc62955726c2fe2527a4",
+"assets/assets/images/logo_sopodely.png": "871946e7356489a33518ec6f4174d17d",
+"assets/assets/images/logo_lookplanner.jpeg": "31836e3ef53a26601fc8707eac7398dc",
+"assets/assets/images/logo_cm_live.jpeg": "9cbbbd751954ceaee3c3f45faa4029d9",
+"assets/assets/images/logo_sopodely_driver.png": "fbc7b02018d09cc78749b1464a0aa032",
+"assets/assets/images/logo_photo_tune_plus.jpeg": "3e6d2e7af1daa5bf9a32a8936d761ff4",
+"assets/assets/images/logo_mercy.png": "0318c6a492f91952e50b8fe9a0feb91f",
+"assets/assets/images/logo_amrita.png": "fcba65f4932e01680f421b58dd5b1a58",
+"assets/assets/images/logo_hanumangarh.jpeg": "ef416f7fece4e4a9426d37fb3112061a",
+"assets/assets/images/background4.jpg": "b00f0bb1e37dac6314b10a5a5ed3b62e",
+"assets/NOTICES": "a164e05958c2030231504abc3072c823",
+"version.json": "009c9e65172e010890f7f65fde438006",
 "favicon.png": "bd3c752e1406e478bc0bdcf9a34a1062",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "571c41aa6ecc00b30d4c828227eb0b11",
-"/": "571c41aa6ecc00b30d4c828227eb0b11",
-"main.dart.js": "16b675a390ee7c59d3f68fa96e61bc9f",
-"manifest.json": "75721181c830e84b9d2b33e7c2b97e0a",
-"version.json": "009c9e65172e010890f7f65fde438006"
-};
-
+"index.html": "8a8dd266c0fe3d912990894201f69fb1",
+"/": "8a8dd266c0fe3d912990894201f69fb1"};
 // The application shell files that are downloaded before a service worker can
 // start.
-const CORE = [
-  "/",
-"main.dart.js",
+const CORE = ["main.dart.js",
 "index.html",
-"assets/NOTICES",
-"assets/AssetManifest.json",
+"assets/AssetManifest.bin.json",
 "assets/FontManifest.json"];
+
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {
   self.skipWaiting();
@@ -91,7 +82,6 @@ self.addEventListener("install", (event) => {
     })
   );
 });
-
 // During activate, the cache is populated with the temp files downloaded in
 // install. If this service worker is upgrading from one with a saved
 // MANIFEST, then use this to retain unchanged resource files.
@@ -113,6 +103,8 @@ self.addEventListener("activate", function(event) {
         await caches.delete(TEMP);
         // Save the manifest to make future upgrades efficient.
         await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+        // Claim client to enable caching on first launch
+        self.clients.claim();
         return;
       }
       var oldManifest = await manifest.json();
@@ -138,6 +130,8 @@ self.addEventListener("activate", function(event) {
       await caches.delete(TEMP);
       // Save the manifest to make future upgrades efficient.
       await manifestCache.put('manifest', new Response(JSON.stringify(RESOURCES)));
+      // Claim client to enable caching on first launch
+      self.clients.claim();
       return;
     } catch (err) {
       // On an unhandled exception the state of the cache cannot be guaranteed.
@@ -148,7 +142,6 @@ self.addEventListener("activate", function(event) {
     }
   }());
 });
-
 // The fetch handler redirects requests for RESOURCE files to the service
 // worker cache.
 self.addEventListener("fetch", (event) => {
@@ -177,16 +170,17 @@ self.addEventListener("fetch", (event) => {
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache.
+        // lazily populate the cache only if the resource was successfully fetched.
         return response || fetch(event.request).then((response) => {
-          cache.put(event.request, response.clone());
+          if (response && Boolean(response.ok)) {
+            cache.put(event.request, response.clone());
+          }
           return response;
         });
       })
     })
   );
 });
-
 self.addEventListener('message', (event) => {
   // SkipWaiting can be used to immediately activate a waiting service worker.
   // This will also require a page refresh triggered by the main worker.
@@ -199,7 +193,6 @@ self.addEventListener('message', (event) => {
     return;
   }
 });
-
 // Download offline will check the RESOURCES for all files not in the cache
 // and populate them.
 async function downloadOffline() {
@@ -220,7 +213,6 @@ async function downloadOffline() {
   }
   return contentCache.addAll(resources);
 }
-
 // Attempt to download the resource online before falling back to
 // the offline cache.
 function onlineFirst(event) {

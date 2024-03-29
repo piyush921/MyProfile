@@ -11,6 +11,7 @@ void main() => runApp(MaterialApp(
 class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return _portraitMode(context);
+    
   }
 
   MaterialApp _portraitMode(BuildContext context) {
